@@ -1,26 +1,78 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: CloudFormation Template to deploy multiple EC2 instances from a specific AMI
-
-Parameters:
-  NumberOfInstances:
-    Description: Number of EC2 instances to create
-    Type: Number
-    Default: 1
-    MinValue: 1
-    MaxValue: 10
-    ConstraintDescription: Must be a number between 1 and 10.
+Description: CloudFormation Template to deploy 5 EC2 instances from predefined AMI and instance type
 
 Resources:
-  EC2Instance:
+  EC2Instance1:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.medium  # Predefined instance type
-      ImageId: ami-12345678  # Replace 'ami-12345678' with your desired AMI ID
-      # You can add more properties here as needed, such as security groups, key pairs, etc.
+      InstanceType: t2.medium
+      ImageId: ami-043e0fe9035570bd2
+      KeyName: 'glenn'
+      SubnetId: subnet-0d2ce5ad92f967994
+      SecurityGroupIds:
+        - sg-07284fc3936d77353
+      BlockDeviceMappings:
+        - DeviceName: /dev/xvda
+          Ebs:
+            VolumeSize: 15
+            VolumeType: gp2
 
-Outputs:
-  InstanceId:
-    Description: The IDs of the created EC2 instances
-    Value: !Join [",", !GetAtt EC2Instance.*.InstanceId]
-    Export:
-      Name: !Sub "${AWS::StackName}-InstanceIds"
+  # EC2Instance2:
+  #   Type: AWS::EC2::Instance
+  #   Properties:
+  #     InstanceType: t2.medium
+  #     ImageId: ami-043e0fe9035570bd2
+  #     KeyName: 'glenn'
+  #     SubnetId: subnet-0d2ce5ad92f967994
+  #     SecurityGroupIds:
+  #       - sg-07284fc3936d77353
+  #     BlockDeviceMappings:
+  #       - DeviceName: /dev/xvda
+  #         Ebs:
+  #           VolumeSize: 15
+  #           VolumeType: gp2
+
+  # EC2Instance3:
+  #   Type: AWS::EC2::Instance
+  #   Properties:
+  #     InstanceType: t2.medium
+  #     ImageId: ami-043e0fe9035570bd2
+  #     KeyName: 'glenn'
+  #     SubnetId: subnet-0d2ce5ad92f967994
+  #     SecurityGroupIds:
+  #       - sg-07284fc3936d77353
+  #     BlockDeviceMappings:
+  #       - DeviceName: /dev/xvda
+  #         Ebs:
+  #           VolumeSize: 15
+  #           VolumeType: gp2
+
+  # EC2Instance4:
+  #   Type: AWS::EC2::Instance
+  #   Properties:
+  #     InstanceType: t2.medium
+  #     ImageId: ami-043e0fe9035570bd2
+  #     KeyName: 'glenn'
+  #     SubnetId: subnet-0d2ce5ad92f967994
+  #     SecurityGroupIds:
+  #       - sg-07284fc3936d77353
+  #     BlockDeviceMappings:
+  #       - DeviceName: /dev/xvda
+  #         Ebs:
+  #           VolumeSize: 15
+  #           VolumeType: gp2
+
+  # EC2Instance5:
+  #   Type: AWS::EC2::Instance
+  #   Properties:
+  #     InstanceType: t2.medium
+  #     ImageId: ami-043e0fe9035570bd2
+  #     KeyName: 'glenn'
+  #     SubnetId: subnet-0d2ce5ad92f967994
+  #     SecurityGroupIds:
+  #       - sg-07284fc3936d77353
+  #     BlockDeviceMappings:
+  #       - DeviceName: /dev/xvda
+  #         Ebs:
+  #           VolumeSize: 15
+  #           VolumeType: gp2
