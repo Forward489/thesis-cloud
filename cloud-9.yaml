@@ -5,7 +5,7 @@ Resources:
       AutomaticStopTimeMinutes: 30
       ConnectionType: CONNECT_SSH
       Description: My Cloud9 Environment
-      ImageId: ubuntu-18.04-x86_64
+      ImageId: ubuntu-22.04-x86_64
       InstanceType: t2.medium
       Name: TekwebIDE
       SubnetId: 'subnet-0d2ce5ad92f967994'
