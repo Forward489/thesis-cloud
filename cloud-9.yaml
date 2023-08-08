@@ -13,3 +13,5 @@ Resources:
 Outputs:
   Cloud9OutputID:
     Value: !Ref MyCloud9Environment
+    Export:
+      Name: !Sub "${AWS::StackName}-Cloud9ID"
