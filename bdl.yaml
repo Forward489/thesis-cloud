@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation Template to deploy EC2 instances with Windows OS and predefined Instance
+
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.medium
+      ImageId: ami-0fc682b2a42e57ca2
+      KeyName: 'glenn'
+      SubnetId: subnet-0d2ce5ad92f967994
+      SecurityGroupIds:
+        - sg-04dfab2f8d3629858
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 30
+            VolumeType: gp2
+      UserData:
+        Fn::Base64:
+            Fn::Join:
+                - ''
+                - - '<powershell>'
+                  - 'net user Administrator Belajarbdl123#@!'
+                  - '</powershell>'
+
+Outputs:
+  EC2Instance1Id:
+    Description: The ID of EC2 instance 1
+    Value: !Ref EC2Instance
+  PublicIp:
+    Description: The public IP of the server
+    Value: !GetAtt EC2Instance.PublicIp
+    Export:
+      Name: !Sub "${AWS::StackName}-PublicIp"

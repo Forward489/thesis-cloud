@@ -9,3 +9,7 @@ Resources:
       InstanceType: t2.medium
       Name: TekwebIDE
       SubnetId: subnet-0f8a0dde6aba59f88
+  
+Outputs:
+  Cloud9OutputID:
+    Value: !Ref MyCloud9Environment
