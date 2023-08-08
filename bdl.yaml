@@ -23,6 +23,14 @@ Resources:
                 - - '<powershell>'
                   - 'net user Administrator Belajarbdl123#@!'
                   - '</powershell>'
+  EIP:
+    Type: AWS::EC2::EIP
+
+  EIPAssociation1:
+    Type: AWS::EC2::EIPAssociation
+    Properties:
+      InstanceId: !Ref EC2Instance
+      EIP: !Ref EIP
 
 Outputs:
   EC2Instance1Id:
