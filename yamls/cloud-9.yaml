@@ -1,5 +1,5 @@
 Resources:
-  Cloud9OfficialEnvironment:
+  Cloud9OfficialEnvironmentTekweb:
     Type: AWS::Cloud9::EnvironmentEC2
     Properties:
       AutomaticStopTimeMinutes: 30
@@ -12,6 +12,6 @@ Resources:
   
 Outputs:
   Cloud9OutputID:
-    Value: !Ref Cloud9OfficialEnvironment
+    Value: !Ref Cloud9OfficialEnvironmentTekweb
     Export:
       Name: !Sub "${AWS::StackName}-Cloud9ID"
