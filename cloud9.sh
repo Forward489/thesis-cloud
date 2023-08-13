@@ -2,7 +2,7 @@
 
 aws cloudformation deploy \
 --template-file ./yamls/cloud-9.yaml \
---stack-name OfficialTekwebIDE
+--stack-name TekwebCloud9
 
 security=`aws ec2 describe-instances --filters 'Name=tag:Name,Values=*cloud9*' --output text --query 'Reservations[*].Instances[*].[InstanceId,NetworkInterfaces[*].Groups[*].GroupId,NetworkInterfaces[*].SubnetId][0][1]'`
 
