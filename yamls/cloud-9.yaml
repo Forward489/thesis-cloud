@@ -1,5 +1,5 @@
 Resources:
-  MyCloud9Environment:
+  Cloud9OfficialEnvironment:
     Type: AWS::Cloud9::EnvironmentEC2
     Properties:
       AutomaticStopTimeMinutes: 30
@@ -12,6 +12,6 @@ Resources:
   
 Outputs:
   Cloud9OutputID:
-    Value: !Ref MyCloud9Environment
+    Value: !Ref Cloud9OfficialEnvironment
     Export:
       Name: !Sub "${AWS::StackName}-Cloud9ID"

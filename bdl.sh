@@ -1,3 +1,5 @@
 # sh ./install-command-runner.sh
 
-aws cloudformation create-stack --stack-name "BDL Instance" --template-body ./yamls/bdl.yaml
+aws cloudformation deploy \
+--template-file ./yamls/bdl.yaml \
+--stack-name InstanceBDL
