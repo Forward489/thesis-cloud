@@ -1,4 +1,4 @@
-# sh install-command-runner.sh
+#run "git clone https://github.com/Forward489/thesis-cloud.git && cd thesis-cloud && sh cloud9.sh && cd .. && sudo rm -r thesis-cloud"
 
 aws cloudformation deploy \
 --template-file ./yamls/cloud-9.yaml \
