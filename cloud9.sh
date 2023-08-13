@@ -1,6 +1,6 @@
 # sh install-command-runner.sh
 
-aws cloudformation create-stack --stack-name "Tekweb IDE" --template-body ./yamls/cloud-9.yaml
+aws cloudformation create-stack --stack-name OfficialTekwebIDE --template-body ./yamls/cloud-9.yaml
 # instance=`aws ec2 describe-instances --filters 'Name=tag:Name,Values=*cloud9*' --output text --query 'Reservations[*].Instances[*].InstanceId'`
 
 security=`aws ec2 describe-instances --filters 'Name=tag:Name,Values=*cloud9*' --output text --query 'Reservations[*].Instances[*].[InstanceId,NetworkInterfaces[*].Groups[*].GroupId,NetworkInterfaces[*].SubnetId][0][1]'`
