@@ -1,4 +1,4 @@
-#run "git clone https://github.com/Forward489/thesis-cloud.git && cd thesis-cloud && sh cloud9.sh && cd .. && sudo rm -r thesis-cloud"
+#run "git clone https://github.com/Forward489/thesis-cloud.git && cd thesis-cloud && sh cloud9.sh
 
 aws cloudformation deploy \
 --template-file ./yamls/cloud-9.yaml \
@@ -11,3 +11,7 @@ aws ec2 authorize-security-group-ingress \
 --protocol tcp \
 --port 80 \
 --cidr 0.0.0.0/0
+
+cd ..
+
+sudo rm -r thesis-cloud
