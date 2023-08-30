@@ -2,7 +2,7 @@
 
 aws cloudformation deploy \
 --template-file ./yamls/bdl.yaml \
---stack-name InstanceBDL
+--stack-name BDL
 
 cd ..
 sudo rm -r thesis-cloud
