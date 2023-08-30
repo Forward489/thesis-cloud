@@ -12,8 +12,8 @@ Resources:
       # SecurityGroupIds:
       #   - sg-04dfab2f8d3629858
       Tags:
-        Key: Name
-        Value: BDL
+        - Key: "Name"
+          Value: "BDL"
       BlockDeviceMappings:
         - DeviceName: /dev/sda1
           Ebs:
