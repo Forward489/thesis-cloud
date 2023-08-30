@@ -6,8 +6,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.medium
-      ImageId: ami-09301a37d119fe4c5
-      KeyName: 'glenn'
+      ImageId: ami-0fc682b2a42e57ca2
       SubnetId: subnet-0d2ce5ad92f967994
       SecurityGroupIds:
         - sg-04dfab2f8d3629858
