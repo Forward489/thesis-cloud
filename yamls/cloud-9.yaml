@@ -8,7 +8,7 @@ Resources:
       ImageId: ubuntu-22.04-x86_64
       InstanceType: t2.medium
       Name: TekwebIDE
-      SubnetId: subnet-0f8a0dde6aba59f88
+      # SubnetId: subnet-0f8a0dde6aba59f88
   
 Outputs:
   Cloud9OutputID:
