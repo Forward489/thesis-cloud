@@ -6,3 +6,5 @@ aws cloudformation deploy \
 
 cd ..
 sudo rm -r thesis-cloud
+
+# security=`aws ec2 describe-instances --filters 'Name=tag:Name,Values=*-*' --output text --query 'Reservations[*].Instances[*].[InstanceId,NetworkInterfaces[*].Groups[*].GroupId,NetworkInterfaces[*].SubnetId][0][1]'`
