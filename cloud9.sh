@@ -12,6 +12,10 @@ aws ec2 authorize-security-group-ingress \
 --port 80 \
 --cidr 0.0.0.0/0
 
+instance=`aws ec2 describe-instances --filters "Name=tag:Name,Values=*cloud9*" --query "Reservations[].Instances[].InstanceId" --output text`
+
+aws ssm send-command --document-name "AWS-RunShellScript" --instance-ids "$instance" --parameters commands="bash ./startup-kit-cloud9.sh"
+
 cd ..
 
 sudo rm -r thesis-cloud

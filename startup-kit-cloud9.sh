@@ -2,5 +2,5 @@
 
 sudo chown ubuntu:ubuntu /var/www/html
 sudo ln -s /var/www/html/ ~/environment/public-html
-cd ..
-sudo rm -r thesis-cloud
+# cd ..
+# sudo rm -r thesis-cloud
