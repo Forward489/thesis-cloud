@@ -1,8 +1,5 @@
 #run "git clone https://github.com/Forward489/thesis-cloud.git && cd thesis-cloud && sh cloud9.sh
 
-account=`aws sts get-caller-identity --query Account --output text`
-
-
 aws cloudformation deploy \
 --template-file ./yamls/cloud-9.yaml \
 --stack-name TekwebCloud9
@@ -16,15 +13,18 @@ aws ec2 authorize-security-group-ingress \
 --port 80 \
 --cidr 0.0.0.0/0
 
+# instance=`aws ec2 describe-instances --filters "Name=tag:Name,Values=*cloud9*" --query "Reservations[].Instances[].InstanceId" --output text`
+
+# aws ec2 associate-iam-instance-profile --iam-instance-profile Name=LabInstanceProfile --instance-id "$instance"
+
+# account=`aws sts get-caller-identity --query Account --output text`
+
 # aws sts assume-role --role-arn arn:aws:iam::$account:role/LabRole --role-session-name LabRoleSession
 
 # instance=`aws ec2 describe-instances --filters "Name=tag:Name,Values=*cloud9*" --query "Reservations[].Instances[].InstanceId" --output text`
 
-# aws ec2 associate-iam-instance-profile --iam-instance-profile Name=LabInstanceProfile --instance-id $instance
-
 # aws ssm send-command --document-name "AWS-RunShellScript" --instance-ids $instance --parameters commands="bash ./startup-kit-cloud9.sh" --output text
 
-# aws ssm send-command --document-name "AWS-RunShellScript" --instance-ids i-055db2074119005a1 --parameters commands="bash ./startup-kit-cloud9.sh"
 
 cd ..
 
