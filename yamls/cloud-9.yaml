@@ -3,6 +3,15 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       RoleName: LabRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+            Action:
+              - sts:AssumeRole
 
   Cloud9OfficialEnvironmentTekweb:
     Type: AWS::Cloud9::EnvironmentEC2
