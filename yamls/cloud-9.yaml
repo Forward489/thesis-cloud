@@ -1,30 +1,15 @@
-Resources:
-  LabRole:
-    Type: AWS::IAM::Role
-    Properties:
-      RoleName: LabRole
-      AssumeRolePolicyDocument:
-        Version: '2012-10-17'
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service:
-                - ec2.amazonaws.com
-            Action:
-              - sts:AssumeRole
+Cloud9OfficialEnvironmentTekweb:
+  Type: AWS::Cloud9::EnvironmentEC2
+  Properties:
+    AutomaticStopTimeMinutes: 30
+    ConnectionType: CONNECT_SSH
+    Description: My Cloud9 Environment
+    ImageId: ubuntu-22.04-x86_64
+    InstanceType: t2.medium
+    Name: TekwebIDE2
+    OwnerArn: !Sub arn:aws:iam::${AWS::AccountId}:role/LabRole
+    # SubnetId: subnet-0f8a0dde6aba59f88
 
-  Cloud9OfficialEnvironmentTekweb:
-    Type: AWS::Cloud9::EnvironmentEC2
-    Properties:
-      AutomaticStopTimeMinutes: 30
-      ConnectionType: CONNECT_SSH
-      Description: My Cloud9 Environment
-      ImageId: ubuntu-22.04-x86_64
-      InstanceType: t2.medium
-      Name: TekwebIDE2
-      OwnerArn: !GetAtt LabRole.Arn
-      # SubnetId: subnet-0f8a0dde6aba59f88
-  
 Outputs:
   Cloud9OutputID:
     Value: !Ref Cloud9OfficialEnvironmentTekweb
