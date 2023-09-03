@@ -3,6 +3,6 @@
 sudo chown ubuntu:ubuntu /var/www/html
 sudo ln -s /var/www/html/ ~/environment/public-html
 touch /var/www/html/tes.php
-echo "<?php \n phpinfo(); \n ?>" >> /var/www/html/tes.php
+echo "<?php \n\tphpinfo(); \n?>" >> /var/www/html/tes.php
 cd ..
 sudo rm -r thesis-cloud
