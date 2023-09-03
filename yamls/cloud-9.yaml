@@ -1,9 +1,8 @@
 Resources:
-  LabRoleArn:
-    Type: 'AWS::SSM::Parameter'
+  LabRole:
+    Type: AWS::IAM::Role
     Properties:
-      Name: '/IAM/LabRole/Arn'
-      Type: String
+      RoleName: LabRole
 
   Cloud9OfficialEnvironmentTekweb:
     Type: AWS::Cloud9::EnvironmentEC2
@@ -14,7 +13,7 @@ Resources:
       ImageId: ubuntu-22.04-x86_64
       InstanceType: t2.medium
       Name: TekwebIDE2
-      OwnerArn: !Ref LabRoleArn
+      OwnerArn: !Ref LabRole.Arn
       # SubnetId: subnet-0f8a0dde6aba59f88
   
 Outputs:
