@@ -11,8 +11,8 @@ Resources:
       OwnerArn: !Sub arn:aws:iam::${AWS::AccountId}:role/LabRole
       # SubnetId: subnet-0f8a0dde6aba59f88
 
-  Outputs:
-    Cloud9OutputID:
-      Value: !Ref Cloud9OfficialEnvironmentTekweb
-      Export:
-        Name: !Sub "${AWS::StackName}-Cloud9ID"
+Outputs:
+  Cloud9OutputID:
+    Value: !Ref Cloud9OfficialEnvironmentTekweb
+    Export:
+      Name: !Sub "${AWS::StackName}-Cloud9ID"
