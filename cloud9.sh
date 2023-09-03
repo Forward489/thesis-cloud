@@ -12,9 +12,14 @@ aws ec2 authorize-security-group-ingress \
 --port 80 \
 --cidr 0.0.0.0/0
 
+
 # instance=`aws ec2 describe-instances --filters "Name=tag:Name,Values=*cloud9*" --query "Reservations[].Instances[].InstanceId" --output text`
 
-# aws ssm send-command --document-name "AWS-RunShellScript" --instance-ids $instance --parameters commands="bash ./startup-kit-cloud9.sh"
+# aws ec2 associate-iam-instance-profile --iam-instance-profile Name=LabInstanceProfile --instance-id $instance
+
+# aws ssm send-command --document-name "AWS-RunShellScript" --instance-ids $instance --parameters commands="bash ./startup-kit-cloud9.sh" --output text
+
+# aws ssm send-command --document-name "AWS-RunShellScript" --instance-ids i-055db2074119005a1 --parameters commands="bash ./startup-kit-cloud9.sh"
 
 cd ..
 
